@@ -4,6 +4,7 @@ return [
     'main' => 'Main',
     'dashboard' => 'Dashboard',
     'genres' => 'Genres',
+    'tags'=>'Tags',
     'media' => 'Media Library',
     'movies' => 'Movies',
     'review'=>'Reviews',

@@ -52,7 +52,7 @@ class TagController extends Controller
         ];
         $export_url = route('backend.tags.export');
 
-        return view('genres::backend.genres.index', compact('module_action', 'export_import', 'export_columns', 'export_url'));
+        return view('tag::backend.tag.index', compact('module_action', 'export_import', 'export_columns', 'export_url'));
     }
 
 
@@ -97,7 +97,7 @@ class TagController extends Controller
             ]);
         }
 
-        return view('genres::backend.genres.create', compact('module_title', 'hasMore'));
+        return view('tag::backend.tag.create', compact('module_title', 'hasMore'));
 
 
        // return view('genres::backend.genres.create', compact('mediaUrls','module_title'));
@@ -115,7 +115,7 @@ class TagController extends Controller
 
     public function show($id)
     {
-        return view('genres::show');
+        return view('tag::show');
     }
 
     public function edit($id)
@@ -123,7 +123,7 @@ class TagController extends Controller
         $tag = $this->tagService->getGenreById($id);
         $mediaUrls = getMediaUrls();
         $module_title = __('genres.edit_title');
-        return view('genres::backend.tags.edit', compact('tag', 'mediaUrls','module_title'));
+        return view('tag::backend.tag.edit', compact('tag', 'mediaUrls','module_title'));
     }
 
     public function update(TagRequest $request, $id)

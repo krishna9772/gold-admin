@@ -4,6 +4,8 @@ namespace Modules\Tag\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Modules\Tag\Repositories\TagRepository;
+use Modules\Tag\Repositories\TagRepositoryInterface;
 
 class TagServiceProvider extends ServiceProvider
 {
@@ -30,6 +32,7 @@ class TagServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->bind(TagRepositoryInterface::class, TagRepository::class);
     }
 
     /**

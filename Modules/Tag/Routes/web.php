@@ -28,6 +28,6 @@ Route::group(['prefix' => 'app', 'as' => 'backend.', 'middleware' => ['auth','ad
         Route::post('restore/{id}', [TagController::class, 'restore'])->name('restore');
         Route::delete('force-delete/{id}', [TagController::class, 'forceDelete'])->name('force_delete');
     });
-    Route::resource('tag', TagController::class)->names('tag');
+    Route::resource('tags', TagController::class)->names('tags');
 
 });

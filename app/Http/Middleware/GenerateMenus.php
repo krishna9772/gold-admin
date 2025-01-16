@@ -54,6 +54,16 @@ class GenerateMenus
                 'order' => 0,
             ]);
 
+
+            $this->mainRoute($menu, [
+                'icon' => 'ph ph-tag',
+                'route' => 'backend.tags.index',
+                'title' => __('sidebar.tags'),
+                'active' => ['app/tag'],
+                'permission' => ['view_genres'],
+                'order' => 0,
+            ]);
+
             if(isenablemodule('movie')==1){
             $this->mainRoute($menu, [
                 'icon' => 'ph ph-film-strip',
