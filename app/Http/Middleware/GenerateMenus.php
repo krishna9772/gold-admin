@@ -59,7 +59,7 @@ class GenerateMenus
                 'icon' => 'ph ph-tag',
                 'route' => 'backend.tags.index',
                 'title' => __('sidebar.tags'),
-                'active' => ['app/tag'],
+                'active' => ['app/tags'],
                 'permission' => ['view_genres'],
                 'order' => 0,
             ]);
@@ -291,7 +291,7 @@ class GenerateMenus
                 'icon' => 'ph ph-target',
                 'title' => __('sidebar.ads_banner'),
                 'route' => 'backend.adbanner.index',
-                'active' => ['app/banners'],
+                'active' => ['app/adbanner'],
                 'permission' =>['view_banners'],
                 'order' => 0,
             ]);
