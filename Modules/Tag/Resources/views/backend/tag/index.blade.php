@@ -98,30 +98,30 @@ const columns = [
                 searchable: false,
             },
             {   data: 'image',
-                name: 'image', 
-                title: "{{ __('messages.genres') }}", 
+                name: 'image',
+                title: "{{ __('messages.tags') }}",
                 orderable: false,
-                searchable: false, 
+                searchable: false,
             },
-            { 
-                data: 'name', 
-                name: 'name', 
-                title: "{{ __('messages.name') }}", 
-                visible: false 
+            {
+                data: 'name',
+                name: 'name',
+                title: "{{ __('messages.name') }}",
+                visible: false
             },
-            { 
-                data: 'description', 
-                name: 'description',  
+            {
+                data: 'description',
+                name: 'description',
                 title: "{{ __('messages.description') }}",
                 className:"description-column",
                 render:function(data, row){
                 return '<span class="custom-span-class">' + (data ? data : '-') + '</span>';
-                } 
+                }
             },
-            { 
-                data: 'status', 
-                name: 'status',  
-                title: "{{ __('messages.lbl_status') }}" 
+            {
+                data: 'status',
+                name: 'status',
+                title: "{{ __('messages.lbl_status') }}"
             },
             {
                 data: 'updated_at',
@@ -133,12 +133,12 @@ const columns = [
         ]
 
         const actionColumn = [
-            { 
-                data: 'action', 
-                name: 'action', 
-                orderable: false, 
-                searchable: false, 
-                title: "{{ __('messages.action') }}" 
+            {
+                data: 'action',
+                name: 'action',
+                orderable: false,
+                searchable: false,
+                title: "{{ __('messages.action') }}"
             }
         ]
 

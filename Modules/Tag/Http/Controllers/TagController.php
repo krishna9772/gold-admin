@@ -15,7 +15,7 @@ use Modules\Tag\Services\TagService;
 
 class TagController extends Controller
 {
-    protected string $exportClass = '\App\Exports\TagsExport';
+    protected string $exportClass = '\App\Exports\TagExport';
     protected $tagService;
 
     use ModuleTrait {
@@ -122,7 +122,7 @@ class TagController extends Controller
     {
         $tag = $this->tagService->getGenreById($id);
         $mediaUrls = getMediaUrls();
-        $module_title = __('genres.edit_title');
+        $module_title = __('tags.edit_title');
         return view('tag::backend.tag.edit', compact('tag', 'mediaUrls','module_title'));
     }
 

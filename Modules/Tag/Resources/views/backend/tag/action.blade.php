@@ -1,8 +1,7 @@
 <div class="d-flex gap-2 align-items-center justify-content-end">
-
     @if(!$data->trashed())
         @hasPermission('edit_genres')
-        <a  class="btn btn-warning-subtle btn-sm fs-4" data-bs-toggle="tooltip" title="{{__('messages.edit')}}" href="{{ route('backend.tags.edit', $data->id) }}"> <i class="ph ph-pencil-simple-line align-middle"></i></a>
+        <a  class="btn btn-warning-subtle btn-sm fs-4" data-bs-toggle="tooltip" title="{{__('messages.edit')}}" href="{{ route('backend.tags.edit', $data->id) }}"><i class="ph ph-pencil-simple-line align-middle"></i></a>
         @endhasPermission
 
         @hasPermission('delete_genres')

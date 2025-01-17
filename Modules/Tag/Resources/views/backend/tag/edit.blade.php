@@ -2,7 +2,7 @@
 
 @section('content')
 <x-back-button-component route="backend.tags.index" />
-{{ html()->form('PUT', route('backend.tags.update', $genre->id))
+{{ html()->form('PUT', route('backend.tags.update', $tag->id))
         ->attribute('enctype', 'multipart/form-data')
         ->attribute('data-toggle', 'validator')
         ->attribute('id', 'form-submit')  // Add the id attribute here
@@ -38,14 +38,14 @@
                 </div>
 
                 <div class="mb-3 uploaded-image" id="selectedImageContainer1">
-                    @if ($genre->file_url)
-                        <img src="{{ $genre->file_url }}" class="img-fluid mb-2" style="max-width: 100px; max-height: 100px;">
+                    @if ($tag->file_url)
+                        <img src="{{ $tag->file_url }}" class="img-fluid mb-2" style="max-width: 100px; max-height: 100px;">
                         <span class="remove-media-icon"
                               style="cursor: pointer; font-size: 24px; position: absolute; top: 0; right: 0; color: red;"
                               onclick="removeImage('file_url1', 'remove_image_flag')">×</span>
                     @endif
                 </div>
-                {{ html()->hidden('file_url')->id('file_url1')->value($genre->file_url) }}
+                {{ html()->hidden('file_url')->id('file_url1')->value($tag->file_url) }}
                 {{ html()->hidden('remove_image')->id('remove_image_flag')->value(0) }}
 
             </div>
@@ -55,7 +55,7 @@
                         <div class="mb-3">
                             {{ html()->label(__('genres.lbl_name') . '<span class="text-danger">*</span>', 'name')->class('form-label')}}
                             {{
-                                html()->text('name', $genre->name)
+                                html()->text('name', $tag->name)
                                     ->class('form-control')
                                     ->id('name')
                                     ->placeholder(__('placeholder.lbl_genre_name'))
@@ -73,7 +73,7 @@
                                 <div class="form-check form-switch">
                                     {{ html()->hidden('status', 0) }}
                                     {{
-                                        html()->checkbox('status', $genre->status)
+                                        html()->checkbox('status', $tag->status)
                                             ->class('form-check-input')
                                             ->id('status')
                                             ->value(1)
@@ -88,7 +88,7 @@
                     <div class="col-md-6 col-lg-6">
                         {{ html()->label(__('plan.lbl_description') . ' <span class="text-danger">*</span>', 'description')->class('form-label') }}
                         {{
-                            html()->textarea('description', $genre->description)
+                            html()->textarea('description', $tag->description)
                                 ->class('form-control')
                                 ->id('description')
                                 ->placeholder(__('placeholder.lbl_genre_description'))

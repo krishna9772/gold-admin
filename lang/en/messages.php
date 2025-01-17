@@ -108,6 +108,7 @@ return [
     'logout'=>'Logout',
     'change_language'=>'Change Language',
     'genres' => 'Genre',
+    'tags' => 'Tags',
     'lbl_tmdb_Api'=>'Import Entertainment Data From TMDB',
     'lbl_tmdb_key'=>'TMDB API key',
     'user_subscribe' => 'User subscribe successfully!',
@@ -221,7 +222,7 @@ return [
     'lbl_android_identifier'=>'Android Identifier',
     'dashboard' => 'Dashboard',
 
-    
+
     'lbl_api_key'=>'API Key',
     'lbl_auth_domain'=>'Auth Domain',
     'lbl_database_url'=>'Database URL',

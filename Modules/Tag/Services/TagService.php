@@ -79,7 +79,7 @@ class TagService
                 return view('components.image-name', ['image' => $imageUrl, 'name' => $data->name])->render();
             })
             ->addColumn('action', function ($data) {
-                return view('genres::backend.genres.action', compact('data'));
+                return view('tag::backend.tag.action', compact('data'));
             })
             ->editColumn('status', function ($row) {
                 $checked = $row->status ? 'checked="checked"' : '';
