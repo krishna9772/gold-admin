@@ -1,0 +1,11 @@
+{
+    "name": "AdBanner",
+    "alias": "adbanner",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\AdBanner\\Providers\\AdBannerServiceProvider"
+    ],
+    "files": []
+}

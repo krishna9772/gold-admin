@@ -1,33 +1,32 @@
 <?php
 
-namespace Modules\Tag\Http\Controllers;
+namespace Modules\AdBanner\Http\Controllers;
 
-use App\Trait\ModuleTrait;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Modules\Genres\Http\Requests\GenresRequest;
 use Yajra\DataTables\DataTables;
+use Modules\Genres\Models\Genres;
+use App\Trait\ModuleTrait;
 use Illuminate\Support\Facades\Cache;
-use Modules\Tag\Http\Requests\TagRequest;
-use Modules\Tag\Models\Tag;
-use Modules\Tag\Services\TagService;
+use Modules\AdBanner\Http\Requests\AdBannerRequest;
+use Modules\AdBanner\Services\AdBannerService;
 
-class TagController extends Controller
+class AdBannerController extends Controller
 {
-    protected string $exportClass = '\App\Exports\TagExport';
-    protected $tagService;
+    protected string $exportClass = '\App\Exports\AdBannerExport';
+    protected $adbannerService;
 
     use ModuleTrait {
         initializeModuleTrait as private traitInitializeModuleTrait;
     }
 
-    public function __construct(TagService $tagService)
+    public function __construct(AdBannerService $adbannerService)
     {
-        $this->tagService = $tagService;
+        $this->adbannerService = $adbannerService;
         $this->traitInitializeModuleTrait(
-            'tags.title',
-            'tags',
+            'adbanner.title',
+            'adbanner',
             'fa-solid fa-clipboard-list'
         );
     }
@@ -50,9 +49,9 @@ class TagController extends Controller
                 'text' => __('plan.lbl_status'),
             ],
         ];
-        $export_url = route('backend.tags.export');
+        $export_url = route('backend.adbanner.export');
 
-        return view('tag::backend.tag.index', compact('module_action', 'export_import', 'export_columns', 'export_url'));
+        return view('adbanner::backend.adbanner.index', compact('module_action', 'export_import', 'export_columns', 'export_url'));
     }
 
 
@@ -60,27 +59,27 @@ class TagController extends Controller
     {
         $ids = explode(',', $request->rowIds);
         $actionType = $request->action_type;
-        $moduleName = __('tags.title');
+        $moduleName = __('adbanner.title');
         Cache::flush();
-        return $this->performBulkAction(Tag::class, $ids, $actionType, $moduleName);
+        return $this->performBulkAction(Genres::class, $ids, $actionType, $moduleName);
     }
 
     public function index_data(Datatables $datatable, Request $request)
     {
         $filter = $request->filter;
-        return $this->tagService->getDataTable($datatable, $filter);
+        return $this->adbannerService->getDataTable($datatable, $filter);
     }
 
 
     public function update_status(Request $request, $id)
     {
-        $this->tagService->updateTag($id, ['status' => $request->status]);
+        $this->adbannerService->updateAdBanner($id, ['status' => $request->status]);
         return response()->json(['status' => true, 'message' => __('messages.status_updated')]);
     }
 
     public function create(Request $request)
     {
-        $module_title = __('tags.add_title');
+        $module_title = __('adbanner.add_title');
 
         $searchQuery = $request->get('query');
         $perPage = 21;
@@ -97,65 +96,63 @@ class TagController extends Controller
             ]);
         }
 
-        return view('tag::backend.tag.create', compact('module_title', 'hasMore'));
+        return view('adbanner::backend.adbanner.create', compact('module_title', 'hasMore'));
 
 
-       // return view('genres::backend.genres.create', compact('mediaUrls','module_title'));
+       // return view('genres::backend.adbanner.create', compact('mediaUrls','module_title'));
     }
 
-    public function store(TagRequest $request)
+    public function store(AdBannerRequest  $request)
     {
         $data = $request->all();
         $data['file_url'] = extractFileNameFromUrl($data['file_url']);
 
-        $this->tagService->createTag($data);
-        $message = __('messages.create_form', ['form' => 'Genres']);
-        return redirect()->route('backend.tags.index')->with('success', $message);
+        $this->adbannerService->createAdBanner($data);
+        $message = __('messages.create_form', ['form' => 'Ad Banner']);
+        return redirect()->route('backend.adbanner.index')->with('success', $message);
     }
 
     public function show($id)
     {
-        return view('tag::show');
+        return view('adbanner::show');
     }
 
     public function edit($id)
     {
-        $tag = $this->tagService->getTagById($id);
+        $adbanner = $this->adbannerService->getAdBannerById($id);
         $mediaUrls = getMediaUrls();
-        $module_title = __('tags.edit_title');
-        return view('tag::backend.tag.edit', compact('tag', 'mediaUrls','module_title'));
+        $module_title = __('adbanner.edit_title');
+        return view('adbanner::backend.adbanner.edit', compact('adbanner', 'mediaUrls','module_title'));
     }
 
-    public function update(TagRequest $request, $id)
+    public function update(AdBannerRequest $request, $id)
     {
         $data = $request->all();
         $data['file_url'] = extractFileNameFromUrl($data['file_url']);
 
-        $genre = $this->tagService->getTagById($id);
-
-        $this->tagService->updateTag($id, $data);
+        $this->adbannerService->updateAdBanner($id, $data);
         $message = __('messages.update_form', ['form' => 'Genres']);
-        return redirect()->route('backend.tags.index')->with('success', $message);
+        return redirect()->route('backend.adbanner.index')->with('success', $message);
     }
 
     public function destroy($id)
     {
-        $this->tagService->deleteTag($id);
-        $message = __('messages.delete_form', ['form' => 'Tags']);
+        $this->adbannerService->deleteAdBanner($id);
+        $message = __('messages.delete_form', ['form' => 'Genres']);
         return response()->json(['message' => $message, 'status' => true], 200);
     }
 
     public function restore($id)
     {
-        $this->tagService->restoreGenre($id);
-        $message = __('messages.restore_form', ['form' => 'Tags']);
+        $this->adbannerService->restoreAdBanner($id);
+        $message = __('messages.restore_form', ['form' => 'Genres']);
         return response()->json(['message' => $message, 'status' => true], 200);
     }
 
     public function forceDelete($id)
     {
-        $this->tagService->forceDeleteTag($id);
-        $message = __('messages.permanent_delete_form', ['form' => 'Tags']);
+        $this->adbannerService->forceDeleteAdBanner($id);
+        $message = __('messages.permanent_delete_form', ['form' => 'Genres']);
         return response()->json(['message' => $message, 'status' => true], 200);
     }
 }

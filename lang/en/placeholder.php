@@ -4,6 +4,7 @@ return [
 
     'lbl_image'=>'Select Media',
     'lbl_genre_name' => 'e.g. Action Movie',
+    'lbl_genre_link' => 'advertisement link',
     'lbl_genre_description' => 'e.g. Watch free Action movies online in HD on any device. Stramit offers streaming Action movies you will love.',
     'lbl_plan_limit_title'=>'e.g.Supported devices',
     'lbl_plan_limit_description'=>'e.g.Supported devices only TV, computer, mobile phone, tablet',
@@ -12,6 +13,7 @@ return [
     'lbl_select_plan'=>'Select Plan',
     'lbl_search'=>'Search...',
     'lbl_plan_level'=>'e.g.Level 2',
+    'lbl_ads_name'=>'Yahoo ads',
     'lbl_plan_duration_type'=>'e.g.Monthly',
     'lbl_plan_duration_value'=>'e.g.1',
     'lbl_plan_price'=>'e.g.199',
@@ -20,7 +22,7 @@ return [
     'lbl_user_last_name'=>'e.g. Williams',
     'lbl_user_email'=>'e.g.Henry@gmail.com',
     'lbl_user_conatct_number'=>'e.g. 9723454740',
-    'lbl_user_password'=>'e.g.123#245', 
+    'lbl_user_password'=>'e.g.123#245',
     'lbl_user_confirm_password'=>'e.g.123#245',
     'lbl_user_date_of_birth'=>'e.g.1994-07-24',
     'lbl_user_address'=>'e.g. 13th Street. 47 W 13th St, New York, NY 10011, USA',
@@ -62,5 +64,5 @@ return [
     'lbl_select_quality'=>'Select Quality',
     'lbl_select_tvcategory'=>'Select TV Category',
     'lbl_select_country'=>'Select Country'
-   
+
 ];

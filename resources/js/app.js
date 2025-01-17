@@ -218,6 +218,7 @@
 
   const selectAllTable = (source) => {
     var dataType = source.getAttribute('data-type');
+    alert(dataType);
     const checkboxes = document.getElementsByName("datatable_ids[]");
     const actionDropdown = document.getElementById('quick-action-type');
     const selectedIds = [];

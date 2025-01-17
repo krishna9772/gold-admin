@@ -28,5 +28,6 @@
     "Frontend": true,
     "Install": true,
     "Installer": true,
-    "Tag": true
+    "Tag": true,
+    "AdBanner": true
 }

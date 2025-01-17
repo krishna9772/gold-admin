@@ -1,69 +1,69 @@
 <?php
-
-namespace Modules\Tag\Services;
+namespace Modules\AdBanner\Services;
 
 
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Cache;
 use Yajra\DataTables\DataTables;
 use Carbon\Carbon;
-use Modules\Tag\Repositories\TagRepositoryInterface;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
+use Modules\AdBanner\Repositories\AdBannerRepositoryInterface;
 
-class TagService
+class AdBannerService
 {
-    protected $tagRepository;
+    protected $adbannerRepository;
 
-    public function __construct(TagRepositoryInterface $tagRepository)
+    public function __construct(AdBannerRepositoryInterface $adbannerRepository)
     {
-        $this->tagRepository = $tagRepository;
+        $this->adbannerRepository = $adbannerRepository;
     }
 
-    public function getAllTags()
+    public function getAllAdBanners()
     {
-        return $this->tagRepository->all();
+        return $this->adbannerRepository->all();
     }
 
-    public function getTagById($id)
+    public function getAdBannerById($id)
     {
-        return $this->tagRepository->find($id);
+        return $this->adbannerRepository->find($id);
     }
 
-    public function createTag(array $data)
+    public function createAdBanner(array $data)
     {
-        $cacheKey = 'tags_';
+        $cacheKey = 'adbanner_';
         Cache::forget($cacheKey);
 
         $data['slug'] = Str::slug($data['name']);
         // $data['file_url'] = setDefaultImage($data['file_url']);
-        return $this->tagRepository->create($data);
+        return $this->adbannerRepository->create($data);
     }
 
-    public function updateTag($id, array $data)
+    public function updateAdBanner($id, array $data)
     {
-        $cacheKey = 'tags_';
+        $cacheKey = 'adbanner_';
         Cache::forget($cacheKey);
-        return $this->tagRepository->update($id, $data);
+        return $this->adbannerRepository->update($id, $data);
     }
 
-    public function deleteTag($id)
+    public function deleteAdBanner($id)
     {
-        $cacheKey = 'tags_';
+        $cacheKey = 'adbanner_';
         Cache::forget($cacheKey);
-        return $this->tagRepository->delete($id);
+        return $this->adbannerRepository->delete($id);
     }
 
-    public function restoreGenre($id)
+    public function restoreAdBanner($id)
     {
-        $cacheKey = 'tags_';
+        $cacheKey = 'adbanner_';
         Cache::forget($cacheKey);
-        return $this->tagRepository->restore($id);
+        return $this->adbannerRepository->restore($id);
     }
 
-    public function forceDeleteTag($id)
+    public function forceDeleteAdBanner($id)
     {
-        $cacheKey = 'tags_';
+        $cacheKey = 'adbanner_';
         Cache::forget($cacheKey);
-        return $this->tagRepository->forceDelete($id);
+        return $this->adbannerRepository->forceDelete($id);
     }
 
     public function getDataTable(Datatables $datatable, $filter)
@@ -79,14 +79,14 @@ class TagService
                 return view('components.image-name', ['image' => $imageUrl, 'name' => $data->name])->render();
             })
             ->addColumn('action', function ($data) {
-                return view('tag::backend.tag.action', compact('data'));
+                return view('adbanner::backend.adbanner.action', compact('data'));
             })
             ->editColumn('status', function ($row) {
                 $checked = $row->status ? 'checked="checked"' : '';
                 $disabled = $row->trashed() ? 'disabled' : '';
                 return '
                     <div class="form-check form-switch">
-                        <input type="checkbox" data-url="' . route('backend.tags.update_status', $row->id) . '"
+                        <input type="checkbox" data-url="' . route('backend.adbanner.update_status', $row->id) . '"
                             data-token="' . csrf_token() . '" class="switch-status-change form-check-input"
                             id="datatable-row-' . $row->id . '" name="status" value="' . $row->id . '" ' . $checked . ' ' . $disabled . '>
                     </div>
@@ -103,7 +103,7 @@ class TagService
 
     public function getFilteredData($filter)
     {
-        $query = $this->tagRepository->query();
+        $query = $this->adbannerRepository->query();
 
         if (isset($filter['column_status'])) {
             $query->where('status', $filter['column_status']);
@@ -116,8 +116,9 @@ class TagService
         return $query;
     }
 
-    public function getTagList($perPage, $searchTerm = null)
+    public function getGenresList($perPage, $searchTerm = null)
     {
-        return $this->tagRepository->list($perPage, $searchTerm);
+        return $this->adbannerRepository->list($perPage, $searchTerm);
     }
+
 }

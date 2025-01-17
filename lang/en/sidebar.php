@@ -24,6 +24,7 @@ return [
     'tax' => 'Tax',
     'system' => 'System',
     'app_banner' => 'App Banner',
+    'ads_banner'=> 'Ads Banner',
     'page' => 'Pages',
     'settings' => 'Settings',
     'access_control' => 'Access Control',

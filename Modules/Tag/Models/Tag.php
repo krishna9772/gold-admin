@@ -38,21 +38,21 @@ class Tag extends Model
     {
         parent::boot();
 
-        static::deleting(function ($genre) {
+        static::deleting(function ($tag) {
 
-            if ($genre->isForceDeleting()) {
+            if ($tag->isForceDeleting()) {
 
-                $genre->entertainmentGenerMappings()->forcedelete();
+                $tag->entertainmentGenerMappings()->forcedelete();
 
             } else {
-                $genre->entertainmentGenerMappings()->delete();
+                $tag->entertainmentGenerMappings()->delete();
              }
 
         });
 
-        static::restoring(function ($genre) {
+        static::restoring(function ($tag) {
 
-            $genre->entertainmentGenerMappings()->withTrashed()->restore();
+            $tag->entertainmentGenerMappings()->withTrashed()->restore();
 
         });
     }

@@ -5,8 +5,9 @@ namespace App\Exports;
 
 use Modules\Tag\Models\Tag;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class TagExport implements FromCollection
+class TagExport implements FromCollection,WithHeadings
 {
     public array $columns;
 

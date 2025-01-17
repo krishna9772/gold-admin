@@ -109,6 +109,8 @@ return [
     'change_language'=>'Change Language',
     'genres' => 'Genre',
     'tags' => 'Tags',
+    'adbanner' => "Ad Banner",
+    'link'=>'Link',
     'lbl_tmdb_Api'=>'Import Entertainment Data From TMDB',
     'lbl_tmdb_key'=>'TMDB API key',
     'user_subscribe' => 'User subscribe successfully!',

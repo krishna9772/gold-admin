@@ -51,9 +51,9 @@ class Genres extends BaseModel
         static::restoring(function ($genre) {
 
             $genre->entertainmentGenerMappings()->withTrashed()->restore();
-            
+
         });
     }
 
-    
+
 }

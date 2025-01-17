@@ -288,6 +288,15 @@ class GenerateMenus
             ]);
 
             $this->mainRoute($menu, [
+                'icon' => 'ph ph-target',
+                'title' => __('sidebar.ads_banner'),
+                'route' => 'backend.adbanner.index',
+                'active' => ['app/banners'],
+                'permission' =>['view_banners'],
+                'order' => 0,
+            ]);
+
+            $this->mainRoute($menu, [
                 'icon' => 'fa-brands fa-intercom',
                 'title' => __('sidebar.cont'),
                 'route' => 'backend.constants.index',
