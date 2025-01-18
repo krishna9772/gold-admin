@@ -37,19 +37,19 @@
       </div>
 
       <!-- Remember Me -->
-      <div class="mt-4">
+      {{-- <div class="mt-4">
         <label for="remember_me" class="d-inline-flex">
           <input id="remember_me" type="checkbox" class="form-check-input" name="remember">
           <span class="ms-2">{{ __('frontend.remember_me') }}</span>
         </label>
-      </div>
+      </div> --}}
 
       <div class="d-flex align-items-center justify-content-between mt-4">
-        @if (Route::has('password.request'))
+        {{-- @if (Route::has('password.request'))
         <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
           {{ __('frontend.forgot_password') }}
         </a>
-        @endif
+        @endif --}}
 
         <button type="submit" id="submit-btn" onclick="disableButton()" class="btn btn-primary">
             {{ __('frontend.login') }}

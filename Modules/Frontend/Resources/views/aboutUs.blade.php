@@ -17,7 +17,7 @@
     </div>
 </div>
     <!-- <div class="col">
-        @include('frontend::components.section.about_us',['about_us' => 'Discover Streamit Endless entertainment'])
+        @include('frontend::components.section.about_us',['about_us' => 'Discover Gold Channel Endless entertainment'])
     </div> -->
 
 @endsection

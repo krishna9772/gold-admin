@@ -87,7 +87,7 @@
       app_name: {
         target: '[data-setting="app_name"]',
         type: "text",
-        value: "Streamit",
+        value: "Gold Channel",
       },
       theme_scheme_direction: {
         target: "html",

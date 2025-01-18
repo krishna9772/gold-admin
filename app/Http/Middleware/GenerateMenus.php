@@ -190,11 +190,11 @@ class GenerateMenus
                 'icon' => 'ph ph-user-circle-gear',
             ]);
 
-            $permissionsToCheck = ['view_subscription', 'view_plans', 'view_planlimitation'];
+            // $permissionsToCheck = ['view_subscription', 'view_plans', 'view_planlimitation'];
 
-            if (collect($permissionsToCheck)->contains(fn ($permission) => auth()->user()->can($permission))) {
-                $this->staticMenu($menu, ['title' => __('sidebar.subscription'), 'order' => 0]);
-            }
+            // if (collect($permissionsToCheck)->contains(fn ($permission) => auth()->user()->can($permission))) {
+            //     $this->staticMenu($menu, ['title' => __('sidebar.subscription'), 'order' => 0]);
+            // }
 
 
             // $show = $this->parentMenu($menu, [
@@ -205,219 +205,219 @@ class GenerateMenus
             //     'order' => 0,
             // ]);
 
-            $this->mainRoute($menu, [
-                'icon' => 'ph ph-hand',
-                'title' => __('sidebar.subscriptions'),
-                'route' => 'backend.subscriptions.index',
-                'active' => ['app/subscriptions'],
-                'nickname' => 'subscription',
-                'shortTitle' => 's',
-                'order' => 0,
-                'permission' => ['view_subscriptions'],
-            ]);
+        //     $this->mainRoute($menu, [
+        //         'icon' => 'ph ph-hand',
+        //         'title' => __('sidebar.subscriptions'),
+        //         'route' => 'backend.subscriptions.index',
+        //         'active' => ['app/subscriptions'],
+        //         'nickname' => 'subscription',
+        //         'shortTitle' => 's',
+        //         'order' => 0,
+        //         'permission' => ['view_subscriptions'],
+        //     ]);
 
-            $this->mainRoute($menu, [
-                'icon' => 'ph ph-list-dashes',
-                'title' => __('sidebar.plan'),
-                'route' => 'backend.plans.index',
-                'active' => ['app/plans'],
-                'nickname' => 'plans',
-                'shortTitle' => 'p',
-                'permission' => ['view_plans'],
-                'order' => 0,
-            ]);
+        //     $this->mainRoute($menu, [
+        //         'icon' => 'ph ph-list-dashes',
+        //         'title' => __('sidebar.plan'),
+        //         'route' => 'backend.plans.index',
+        //         'active' => ['app/plans'],
+        //         'nickname' => 'plans',
+        //         'shortTitle' => 'p',
+        //         'permission' => ['view_plans'],
+        //         'order' => 0,
+        //     ]);
 
-            $this->mainRoute($menu, [
-                'icon' => 'ph ph-warning-octagon',
-                'title' => __('sidebar.plan_limits'),
-                'route' => 'backend.planlimitation.index',
-                'active' => ['app/planlimitation'],
-                'nickname' => 'planlimitation',
-                'shortTitle' => 's',
-                'order' => 0,
-                'permission' => ['view_planlimitation'],
-            ]);
+        //     $this->mainRoute($menu, [
+        //         'icon' => 'ph ph-warning-octagon',
+        //         'title' => __('sidebar.plan_limits'),
+        //         'route' => 'backend.planlimitation.index',
+        //         'active' => ['app/planlimitation'],
+        //         'nickname' => 'planlimitation',
+        //         'shortTitle' => 's',
+        //         'order' => 0,
+        //         'permission' => ['view_planlimitation'],
+        //     ]);
 
-            $permissionsToCheck = ['view_subscriptions'];
+        //     $permissionsToCheck = ['view_subscriptions'];
 
-            if (collect($permissionsToCheck)->contains(fn ($permission) => auth()->user()->can($permission))) {
-                $this->staticMenu($menu, ['title' => __('sidebar.user'), 'order' => 0]);
-            }
+        //     if (collect($permissionsToCheck)->contains(fn ($permission) => auth()->user()->can($permission))) {
+        //         $this->staticMenu($menu, ['title' => __('sidebar.user'), 'order' => 0]);
+        //     }
 
-            $this->mainRoute($menu, [
-                'icon' => 'ph ph-user',
-                'title' => __('sidebar.user'),
-                'route' => 'backend.users.index',
-                'active' => ['app/users'],
-                'order' => 0,
-            ]);
-
-
-            $this->mainRoute($menu, [
-                'icon' => 'ph ph-hourglass',
-                'title' => __('sidebar.plan_expire'),
-                'nickname' => 'soon-to-expire',
-                'route' => ['backend.users.soon-to-exipre','type' => 'soon-to-expire'],
-                'shortTitle' => 'se',
-                'active' => ['app/app/users/soon-to-expire'],
-                'permission' => ['view_subscriptions'],
-                'order' => 0,
-            ]);
-
-            $this->mainRoute($menu, [
-                'icon' => 'ph ph-code-block',
-                'title' => __('sidebar.review'),
-                'route' => 'backend.reviews.index',
-                'active' => ['app/reviews'],
-                'order' => 0,
-            ]);
-
-            $permissionsToCheck = ['view_taxes','view_page','view_setting'];
-
-            if (collect($permissionsToCheck)->contains(fn ($permission) => auth()->user()->can($permission))) {
-                $this->staticMenu($menu, ['title' => __('sidebar.system_setting'), 'order' => 0]);
-            }
-
-            $this->mainRoute($menu, [
-                'icon' => 'ph ph-layout',
-                'title' => __('sidebar.app_banner'),
-                'route' => 'backend.banners.index',
-                'active' => ['app/banners'],
-                'permission' =>['view_banners'],
-                'order' => 0,
-            ]);
-
-            $this->mainRoute($menu, [
-                'icon' => 'ph ph-target',
-                'title' => __('sidebar.ads_banner'),
-                'route' => 'backend.adbanner.index',
-                'active' => ['app/adbanner'],
-                'permission' =>['view_banners'],
-                'order' => 0,
-            ]);
-
-            $this->mainRoute($menu, [
-                'icon' => 'fa-brands fa-intercom',
-                'title' => __('sidebar.cont'),
-                'route' => 'backend.constants.index',
-                'active' => ['app/constants'],
-                'permission' =>['view_constants'],
-                'order' => 0,
-            ]);
-
-            $mobile_setting = $this->parentMenu($menu, [
-                'icon' => 'ph ph-device-mobile',
-                'route' => '',
-                'title' => __('sidebar.mobile_setting'),
-                'nickname' => 'mobile_setting',
-                'order' => 0,
-            ]);
-            $this->childMain($mobile_setting, [
-                'icon' => 'ph ph-gear',
-                'title' => __('sidebar.dashboard_setting'),
-                'route' => 'backend.mobile-setting.index',
-                'active' => 'app/mobile-setting',
-                'permission' => ['view_setting'],
-                'order' => 0,
-            ]);
-
-            if(auth()->user()->hasRole('admin')){
-
-            $this->childMain($mobile_setting, [
-                'icon' => 'ph ph-gear-six',
-                'title' => __('sidebar.App_configuration'),
-                'route' => 'backend.AppConfig.index',
-                'active' => 'app/appconfig',
-                'order' => 0,
-            ]);
-
-        }
+        //     $this->mainRoute($menu, [
+        //         'icon' => 'ph ph-user',
+        //         'title' => __('sidebar.user'),
+        //         'route' => 'backend.users.index',
+        //         'active' => ['app/users'],
+        //         'order' => 0,
+        //     ]);
 
 
-            // $system = $this->parentMenu($menu, [
-            //     'icon' => 'ph ph-airplay',
-            //     'route' => '',
-            //     'title' => __('sidebar.system'),
-            //     'nickname' => 'system',
-            //     'order' => 0,
-            // ]);
+        //     $this->mainRoute($menu, [
+        //         'icon' => 'ph ph-hourglass',
+        //         'title' => __('sidebar.plan_expire'),
+        //         'nickname' => 'soon-to-expire',
+        //         'route' => ['backend.users.soon-to-exipre','type' => 'soon-to-expire'],
+        //         'shortTitle' => 'se',
+        //         'active' => ['app/app/users/soon-to-expire'],
+        //         'permission' => ['view_subscriptions'],
+        //         'order' => 0,
+        //     ]);
 
-            $notification = $this->parentMenu($menu, [
-                'icon' => 'ph ph-bell',
-                'title' => __('notification.title'),
-                'nickname' => 'notifications',
-                'permission' => ['view_notification'],
-                'order' => 0,
-            ]);
+        //     $this->mainRoute($menu, [
+        //         'icon' => 'ph ph-code-block',
+        //         'title' => __('sidebar.review'),
+        //         'route' => 'backend.reviews.index',
+        //         'active' => ['app/reviews'],
+        //         'order' => 0,
+        //     ]);
 
-            $this->childMain($notification, [
-                'icon' => 'ph ph-list-bullets',
-                'title' => __('sidebar.notification_list'),
-                'route' => 'backend.notifications.index',
-                'shortTitle' => 'Li',
-                'active' => 'app/notifications',
-                'permission' => ['view_notification'],
-                'order' => 0,
-            ]);
-                   $this->childMain($notification, [
-                    'icon' => 'ph ph-layout',
-                    'title' => __('notification.template'),
-                    'route' => 'backend.notification-templates.index',
-                    'shortTitle' => 'TE',
-                    'active' => 'app/notification-templates',
-                    'permission' => ['view_notification_template'],
-                    'order' => 0,
-                ]);
+        //     $permissionsToCheck = ['view_taxes','view_page','view_setting'];
+
+        //     if (collect($permissionsToCheck)->contains(fn ($permission) => auth()->user()->can($permission))) {
+        //         $this->staticMenu($menu, ['title' => __('sidebar.system_setting'), 'order' => 0]);
+        //     }
+
+        //     $this->mainRoute($menu, [
+        //         'icon' => 'ph ph-layout',
+        //         'title' => __('sidebar.app_banner'),
+        //         'route' => 'backend.banners.index',
+        //         'active' => ['app/banners'],
+        //         'permission' =>['view_banners'],
+        //         'order' => 0,
+        //     ]);
+
+        //     $this->mainRoute($menu, [
+        //         'icon' => 'ph ph-target',
+        //         'title' => __('sidebar.ads_banner'),
+        //         'route' => 'backend.adbanner.index',
+        //         'active' => ['app/adbanner'],
+        //         'permission' =>['view_banners'],
+        //         'order' => 0,
+        //     ]);
+
+        //     $this->mainRoute($menu, [
+        //         'icon' => 'fa-brands fa-intercom',
+        //         'title' => __('sidebar.cont'),
+        //         'route' => 'backend.constants.index',
+        //         'active' => ['app/constants'],
+        //         'permission' =>['view_constants'],
+        //         'order' => 0,
+        //     ]);
+
+        //     $mobile_setting = $this->parentMenu($menu, [
+        //         'icon' => 'ph ph-device-mobile',
+        //         'route' => '',
+        //         'title' => __('sidebar.mobile_setting'),
+        //         'nickname' => 'mobile_setting',
+        //         'order' => 0,
+        //     ]);
+        //     $this->childMain($mobile_setting, [
+        //         'icon' => 'ph ph-gear',
+        //         'title' => __('sidebar.dashboard_setting'),
+        //         'route' => 'backend.mobile-setting.index',
+        //         'active' => 'app/mobile-setting',
+        //         'permission' => ['view_setting'],
+        //         'order' => 0,
+        //     ]);
+
+        //     if(auth()->user()->hasRole('admin')){
+
+        //     $this->childMain($mobile_setting, [
+        //         'icon' => 'ph ph-gear-six',
+        //         'title' => __('sidebar.App_configuration'),
+        //         'route' => 'backend.AppConfig.index',
+        //         'active' => 'app/appconfig',
+        //         'order' => 0,
+        //     ]);
+
+        // }
+
+
+        //     // $system = $this->parentMenu($menu, [
+        //     //     'icon' => 'ph ph-airplay',
+        //     //     'route' => '',
+        //     //     'title' => __('sidebar.system'),
+        //     //     'nickname' => 'system',
+        //     //     'order' => 0,
+        //     // ]);
+
+        //     $notification = $this->parentMenu($menu, [
+        //         'icon' => 'ph ph-bell',
+        //         'title' => __('notification.title'),
+        //         'nickname' => 'notifications',
+        //         'permission' => ['view_notification'],
+        //         'order' => 0,
+        //     ]);
+
+        //     $this->childMain($notification, [
+        //         'icon' => 'ph ph-list-bullets',
+        //         'title' => __('sidebar.notification_list'),
+        //         'route' => 'backend.notifications.index',
+        //         'shortTitle' => 'Li',
+        //         'active' => 'app/notifications',
+        //         'permission' => ['view_notification'],
+        //         'order' => 0,
+        //     ]);
+        //            $this->childMain($notification, [
+        //             'icon' => 'ph ph-layout',
+        //             'title' => __('notification.template'),
+        //             'route' => 'backend.notification-templates.index',
+        //             'shortTitle' => 'TE',
+        //             'active' => 'app/notification-templates',
+        //             'permission' => ['view_notification_template'],
+        //             'order' => 0,
+        //         ]);
 
 
 
-            $this->mainRoute($menu, [
-                'icon' => 'ph ph-gear-six',
-                'title' => __('sidebar.settings'),
-                'route' => 'backend.settings.general',
-                'active' => 'app/setting/general-setting',
-                // 'permission' => ['view_setting'],
-                'order' => 0,
-            ]);
+        //     $this->mainRoute($menu, [
+        //         'icon' => 'ph ph-gear-six',
+        //         'title' => __('sidebar.settings'),
+        //         'route' => 'backend.settings.general',
+        //         'active' => 'app/setting/general-setting',
+        //         // 'permission' => ['view_setting'],
+        //         'order' => 0,
+        //     ]);
 
-            if(auth()->user()->hasRole('admin')){
+        //     if(auth()->user()->hasRole('admin')){
 
-            $this->mainRoute($menu, [
-                'icon' => 'ph ph-faders',
-                'title' => __('sidebar.access_control'),
-                'route' => 'backend.permission-role.list',
-                'active' => ['app/permission-role'],
-                'order' => 10,
-            ]);
-        }
+        //     $this->mainRoute($menu, [
+        //         'icon' => 'ph ph-faders',
+        //         'title' => __('sidebar.access_control'),
+        //         'route' => 'backend.permission-role.list',
+        //         'active' => ['app/permission-role'],
+        //         'order' => 10,
+        //     ]);
+        // }
 
-            $this->mainRoute($menu, [
-                'icon' => 'ph ph-file',
-                'title' => __('sidebar.page'),
-                'route' => 'backend.pages.index',
-                'active' => ['app/pages'],
-                'permission' =>['view_page'],
-                'order' => 0,
-            ]);
+        //     $this->mainRoute($menu, [
+        //         'icon' => 'ph ph-file',
+        //         'title' => __('sidebar.page'),
+        //         'route' => 'backend.pages.index',
+        //         'active' => ['app/pages'],
+        //         'permission' =>['view_page'],
+        //         'order' => 0,
+        //     ]);
 
 
-            $this->mainRoute($menu, [
-                'icon' => 'fa-light fa-percent',
-                'title' => __('sidebar.tax'),
-                'route' => 'backend.taxes.index',
-                'active' => ['app/taxes'],
-                'permission' =>['view_taxes'],
-                'order' => 0,
-            ]);
+        //     $this->mainRoute($menu, [
+        //         'icon' => 'fa-light fa-percent',
+        //         'title' => __('sidebar.tax'),
+        //         'route' => 'backend.taxes.index',
+        //         'active' => ['app/taxes'],
+        //         'permission' =>['view_taxes'],
+        //         'order' => 0,
+        //     ]);
 
-            $this->mainRoute($menu, [
-                'icon' => 'ph ph-question',
-                'title' => __('faq.title'),
-                'route' => 'backend.faqs.index',
-                'active' => ['app/faqs'],
-                // 'permission' => ['view_faqs'],
-                'order' => 0,
-            ]);
+        //     $this->mainRoute($menu, [
+        //         'icon' => 'ph ph-question',
+        //         'title' => __('faq.title'),
+        //         'route' => 'backend.faqs.index',
+        //         'active' => ['app/faqs'],
+        //         // 'permission' => ['view_faqs'],
+        //         'order' => 0,
+        //     ]);
 
 
 

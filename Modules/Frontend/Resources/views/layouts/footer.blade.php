@@ -16,7 +16,7 @@ $footerData = getFooterData();
             {{__('frontend.footer_content')}}
           </span>
           <div class="mt-5">
-            <p class="mb-2 font-size-14">{{__('frontend.email_us')}}: <a href="mailto:customer@streamit.com" class="link-body-emphasis">customer@streamit.com</a></p>
+            <p class="mb-2 font-size-14">{{__('frontend.email_us')}}: <a href="mailto:customer@goldchannel.com" class="link-body-emphasis">customer@goldchannel.com</a></p>
             <p class="m-0 font-size-14">{{__('frontend.helpline_number')}}: <a href="tel:+480-555-0103" class="link-body-emphasis fw-medium">+ (480) 555-0103</a></p>
           </div>
         </div>
