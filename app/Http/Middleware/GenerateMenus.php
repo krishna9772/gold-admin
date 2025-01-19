@@ -244,33 +244,33 @@ class GenerateMenus
         //         $this->staticMenu($menu, ['title' => __('sidebar.user'), 'order' => 0]);
         //     }
 
-        //     $this->mainRoute($menu, [
-        //         'icon' => 'ph ph-user',
-        //         'title' => __('sidebar.user'),
-        //         'route' => 'backend.users.index',
-        //         'active' => ['app/users'],
-        //         'order' => 0,
-        //     ]);
+            // $this->mainRoute($menu, [
+            //     'icon' => 'ph ph-user',
+            //     'title' => __('sidebar.user'),
+            //     'route' => 'backend.users.index',
+            //     'active' => ['app/users'],
+            //     'order' => 0,
+            // ]);
 
 
-        //     $this->mainRoute($menu, [
-        //         'icon' => 'ph ph-hourglass',
-        //         'title' => __('sidebar.plan_expire'),
-        //         'nickname' => 'soon-to-expire',
-        //         'route' => ['backend.users.soon-to-exipre','type' => 'soon-to-expire'],
-        //         'shortTitle' => 'se',
-        //         'active' => ['app/app/users/soon-to-expire'],
-        //         'permission' => ['view_subscriptions'],
-        //         'order' => 0,
-        //     ]);
+            // $this->mainRoute($menu, [
+            //     'icon' => 'ph ph-hourglass',
+            //     'title' => __('sidebar.plan_expire'),
+            //     'nickname' => 'soon-to-expire',
+            //     'route' => ['backend.users.soon-to-exipre','type' => 'soon-to-expire'],
+            //     'shortTitle' => 'se',
+            //     'active' => ['app/app/users/soon-to-expire'],
+            //     'permission' => ['view_subscriptions'],
+            //     'order' => 0,
+            // ]);
 
-        //     $this->mainRoute($menu, [
-        //         'icon' => 'ph ph-code-block',
-        //         'title' => __('sidebar.review'),
-        //         'route' => 'backend.reviews.index',
-        //         'active' => ['app/reviews'],
-        //         'order' => 0,
-        //     ]);
+            $this->mainRoute($menu, [
+                'icon' => 'ph ph-code-block',
+                'title' => __('sidebar.review'),
+                'route' => 'backend.reviews.index',
+                'active' => ['app/reviews'],
+                'order' => 0,
+            ]);
 
         //     $permissionsToCheck = ['view_taxes','view_page','view_setting'];
 

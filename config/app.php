@@ -127,8 +127,7 @@ return [
     */
 
     'available_locales' => [
-        'en' => 'English (EN)',
-        'fr' => 'French (FR)',
+     
     ],
 
     /*

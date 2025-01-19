@@ -36,11 +36,11 @@
         </a>
       </li>
       @endif
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link"  href="{{ route('comingsoon') }}">
           <span class="item-name">{{__('frontend.coming_soon')}}</span>
         </a>
-      </li>
+      </li> --}}
       @if(isenablemodule('livetv'))
       <li class="nav-item">
         <a class="nav-link"  href="{{route('livetv')}}">

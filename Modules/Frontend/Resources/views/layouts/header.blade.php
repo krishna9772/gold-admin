@@ -69,7 +69,7 @@
                                          <span class="ms-1 d-none d-sm-block">Search</span>
                                     </a>
                                 </li> --}}
-                                <li class="nav-item dropdown dropdown-language-wrapper">
+                                {{-- <li class="nav-item dropdown dropdown-language-wrapper">
                                     <button class="btn btn-dark gap-3 px-3 dropdown-toggle" data-bs-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
                                         <img src="{{ asset('flags/' . App::getLocale() . '.png') }}" alt="flag" class="img-fluid me-2" style="width: 20px; height: auto; min-width: 15px;"
@@ -87,7 +87,7 @@
                                             </a>
                                         @endforeach
                                     </div>
-                                </li>
+                                </li> --}}
 
                                 @if(auth()->check())
                                     @if(auth()->user()->user_type == 'user')
@@ -147,14 +147,14 @@
                                                         </span>
                                                     </a>
                                                 </li>
-                                                <li>
+                                                {{-- <li>
                                                     <a href="{{ route('subscriptionPlan') }}" class="link-body-emphasis font-size-14">
                                                         <span class="d-flex align-items-center justify-content-between gap-3">
                                                             <span class="fw-medium">{{__('frontend.subscription_plan')}}</span>
                                                             <i class="ph ph-caret-right"></i>
                                                         </span>
                                                     </a>
-                                                </li>
+                                                </li> --}}
                                                 <li>
                                                     <a href="{{ route('accountSetting') }}" class="link-body-emphasis font-size-14">
                                                         <span class="d-flex align-items-center justify-content-between gap-3">
@@ -163,14 +163,14 @@
                                                         </span>
                                                     </a>
                                                 </li>
-                                                <li>
+                                                {{-- <li>
                                                     <a href="{{ route('payment-history') }}" class="link-body-emphasis font-size-14">
                                                         <span class="d-flex align-items-center justify-content-between gap-3">
                                                             <span class="fw-medium">{{__('frontend.subscription_history')}}</span>
                                                             <i class="ph ph-caret-right"></i>
                                                         </span>
                                                     </a>
-                                                </li>
+                                                </li> --}}
 
                                                 <li>
                                                     <a href="{{ route('user-logout') }}" class="link-primary font-size-14">

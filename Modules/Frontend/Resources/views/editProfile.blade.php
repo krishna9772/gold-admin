@@ -9,15 +9,15 @@
             <div class="col-lg-3 ps-md-0 ps-3">
                 <ul class="nav nav-tabs flex-column gap-4">
                     <li class="nav-item">
-                        <a class="nav-link active p-3 text-center" data-bs-toggle="pill" href="#editProfile">
+                        <a class="nav-link p-3 text-center" data-bs-toggle="pill" href="#editProfile">
                             <h6 class="m-0">{{__('frontend.update_profile')}}</h6>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link p-3 text-center" data-bs-toggle="pill" href="#changePassword">
                             <h6 class="m-0">{{__('frontend.profiles')}}</h6>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
             <div class="col-lg-9 mt-lg-0 mt-5">
