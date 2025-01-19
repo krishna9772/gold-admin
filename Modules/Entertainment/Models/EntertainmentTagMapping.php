@@ -24,6 +24,6 @@ class EntertainmentTagMapping extends Model
 
     public function tag()
     {
-        return $this->belongsTo(Tag::class,'genre_id');
+        return $this->belongsTo(Tag::class,'tag_id');
     }
 }

@@ -206,7 +206,7 @@ class EntertainmentRepository implements EntertainmentRepositoryInterface
     }
     protected function updateTagMappings($entertainmentId, $tags)
     {
-        EntertainmentGenerMapping::where('entertainment_id', $entertainmentId)->forceDelete();
+        EntertainmentTagMapping::where('entertainment_id', $entertainmentId)->forceDelete();
         $this->saveTagMappings($tags, $entertainmentId);
     }
     protected function updateCountryMappings($entertainmentId, $countries)
