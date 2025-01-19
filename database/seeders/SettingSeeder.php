@@ -100,7 +100,7 @@ class SettingSeeder extends Seeder
             array (
                 'id' => 6,
                 'name' => 'app_name',
-                'val' => 'Streamit: Your Ultimate Entertainment Hub',
+                'val' => 'Gold Channel',
                 'type' => 'bussiness',
                 'datatype' => 'bussiness',
                 'created_by' => 2,
@@ -114,7 +114,7 @@ class SettingSeeder extends Seeder
             array (
                 'id' => 7,
                 'name' => 'user_app_name',
-                'val' => 'Streamit: Your Ultimate Entertainment Hub',
+                'val' => 'Gold Channel',
                 'type' => 'bussiness',
                 'datatype' => 'bussiness',
                 'created_by' => 2,
@@ -156,7 +156,7 @@ class SettingSeeder extends Seeder
             array (
                 'id' => 10,
                 'name' => 'short_description',
-                'val' => 'Discover a world of endless entertainment with Streamit. Your one-stop destination for movies, TV shows, and more, available anytime, anywhere.',
+                'val' => 'Discover a world of endless entertainment with Gold Channel. Your one-stop destination for movies, TV shows, and more, available anytime, anywhere.',
                 'type' => 'bussiness',
                 'datatype' => 'bussiness',
                 'created_by' => 2,

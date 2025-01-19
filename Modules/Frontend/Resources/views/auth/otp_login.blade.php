@@ -56,7 +56,7 @@
 
                                 <div class="text-center">
 
-                                    <a href="{{ route('auth.google') }}" class="d-block">
+                                    {{-- <a href="{{ route('auth.google') }}" class="d-block">
                                         <span id="google-login" class="btn btn-dark w-100">
                                             <svg class="me-1" width="16" height="16" viewBox="0 0 16 16"
                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,7 +75,7 @@
                                             </svg>
                                             {{ __('frontend.continue_with_google') }}
                                         </span>
-                                    </a>
+                                    </a> --}}
 
                                     <a href="{{route('admin-login')}}" class="d-block mt-3"> {{__('installer_messages.final.admin_panel')}}</a>
                                 </div>
@@ -370,7 +370,6 @@
             $('#otp_error_message').hide(); // Hide the error message after 2 seconds (2000 milliseconds)
             $('#otp_success_message').hide();
         }, 2000);
-
 
 
         function resendCode() {

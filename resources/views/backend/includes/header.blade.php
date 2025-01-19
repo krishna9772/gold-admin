@@ -39,7 +39,7 @@ class="nav navbar navbar-expand-xl navbar-light iq-navbar header-hover-menu left
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="mb-2 navbar-nav ms-auto align-items-center navbar-list mb-lg-0 gap-3">
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <div class="d-flex align-items-center mr-2 iq-font-style" role="group" aria-label="First group">
                         <input type="radio" class="btn-check" name="theme_font_size" value="theme-fs-sm"
                             id="font-size-sm" checked>
@@ -60,7 +60,7 @@ class="nav navbar navbar-expand-xl navbar-light iq-navbar header-hover-menu left
                             <span class="mb-0 h2" style="color: inherit !important;">A</span>
                         </label>
                     </div>
-                </li>
+                </li> --}}
                 <!-- <li class="nav-item theme-scheme-dropdown dropdown iq-dropdown">
                     <a href="javascript:void(0)" class="nav-link d-flex align-items-center change-mode p-0"
                         data-change-mode="{{ (auth()->user()->user_setting['theme_scheme'] ?? 'light') == 'dark' ? 'light' : 'dark' }}"
@@ -134,12 +134,12 @@ class="nav navbar navbar-expand-xl navbar-light iq-navbar header-hover-menu left
                                 href="{{ route('backend.my-profile') }}">{{ __('messages.myprofile') }}<i class="ph ph-user"></i></a>
                         </li>
                         @role('admin|demo_admin')
-                            <li>
+                            {{-- <li>
                                 <a class="dropdown-item d-flex justify-content-between align-items-center"
                                     href="{{ route('backend.settings.general') }}">
                                     @lang('settings.title') <i class="ph ph-gear"></i>
                                 </a>
-                            </li>
+                            </li> --}}
                         @endrole
 
                         <li>

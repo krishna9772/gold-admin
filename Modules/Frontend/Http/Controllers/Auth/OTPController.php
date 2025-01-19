@@ -28,6 +28,8 @@ class OTPController extends Controller
         
         $settings = Setting::getAllSettings($userId);
         $isOtpLoginEnabled = Setting::where('name', 'is_otp_login')->value('val') == 1;
+
+        // return $settings;
         
         return view('frontend::auth.otp_login', compact('settings', 'isOtpLoginEnabled'));
     }

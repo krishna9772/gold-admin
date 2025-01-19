@@ -55,14 +55,14 @@ class GenerateMenus
             ]);
 
 
-            $this->mainRoute($menu, [
-                'icon' => 'ph ph-tag',
-                'route' => 'backend.tags.index',
-                'title' => __('sidebar.tags'),
-                'active' => ['app/tags'],
-                'permission' => ['view_genres'],
-                'order' => 0,
-            ]);
+            // $this->mainRoute($menu, [
+            //     'icon' => 'ph ph-tag',
+            //     'route' => 'backend.tags.index',
+            //     'title' => __('sidebar.tags'),
+            //     'active' => ['app/tags'],
+            //     'permission' => ['view_genres'],
+            //     'order' => 0,
+            // ]);
 
             if(isenablemodule('movie')==1){
             $this->mainRoute($menu, [
@@ -190,20 +190,20 @@ class GenerateMenus
                 'icon' => 'ph ph-user-circle-gear',
             ]);
 
-            // $permissionsToCheck = ['view_subscription', 'view_plans', 'view_planlimitation'];
+        //     $permissionsToCheck = ['view_subscription', 'view_plans', 'view_planlimitation'];
 
-            // if (collect($permissionsToCheck)->contains(fn ($permission) => auth()->user()->can($permission))) {
-            //     $this->staticMenu($menu, ['title' => __('sidebar.subscription'), 'order' => 0]);
-            // }
+        //     if (collect($permissionsToCheck)->contains(fn ($permission) => auth()->user()->can($permission))) {
+        //         $this->staticMenu($menu, ['title' => __('sidebar.subscription'), 'order' => 0]);
+        //     }
 
 
-            // $show = $this->parentMenu($menu, [
-            //     'icon' =>  'ph ph-currency-circle-dollar',
-            //     'title' => __('sidebar.subscription'),
-            //     'nickname' => 'subscription',
-            //     'permission' => 'view_subscription',
-            //     'order' => 0,
-            // ]);
+        //     $show = $this->parentMenu($menu, [
+        //         'icon' =>  'ph ph-currency-circle-dollar',
+        //         'title' => __('sidebar.subscription'),
+        //         'nickname' => 'subscription',
+        //         'permission' => 'view_subscription',
+        //         'order' => 0,
+        //     ]);
 
         //     $this->mainRoute($menu, [
         //         'icon' => 'ph ph-hand',
@@ -410,14 +410,14 @@ class GenerateMenus
         //         'order' => 0,
         //     ]);
 
-        //     $this->mainRoute($menu, [
-        //         'icon' => 'ph ph-question',
-        //         'title' => __('faq.title'),
-        //         'route' => 'backend.faqs.index',
-        //         'active' => ['app/faqs'],
-        //         // 'permission' => ['view_faqs'],
-        //         'order' => 0,
-        //     ]);
+            $this->mainRoute($menu, [
+                'icon' => 'ph ph-question',
+                'title' => __('faq.title'),
+                'route' => 'backend.faqs.index',
+                'active' => ['app/faqs'],
+                // 'permission' => ['view_faqs'],
+                'order' => 0,
+            ]);
 
 
 

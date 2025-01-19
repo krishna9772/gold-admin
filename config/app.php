@@ -127,11 +127,8 @@ return [
     */
 
     'available_locales' => [
-        'ar' => 'العربی(AR)',
         'en' => 'English (EN)',
-        'el' => 'Greek (EL)',
         'fr' => 'French (FR)',
-        'de' => 'German (DE)',
     ],
 
     /*
