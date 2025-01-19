@@ -2,14 +2,15 @@
 
 namespace Modules\Entertainment\Repositories;
 
+use Auth;
 use Modules\Entertainment\Models\Entertainment;
-use Modules\Entertainment\Models\EntertainmentStreamContentMapping;
+use Modules\Entertainment\Models\EntertainmentTagMapping;
 use Modules\Entertainment\Models\EntertainmentGenerMapping;
 use Modules\Entertainment\Models\EntertainmentTalentMapping;
-use Modules\Entertainment\Models\EntertainmnetDownloadMapping;
 
-use Auth;
 use Modules\Entertainment\Models\EntertainmentCountryMapping;
+use Modules\Entertainment\Models\EntertainmnetDownloadMapping;
+use Modules\Entertainment\Models\EntertainmentStreamContentMapping;
 
 class EntertainmentRepository implements EntertainmentRepositoryInterface
 {
@@ -58,6 +59,9 @@ class EntertainmentRepository implements EntertainmentRepositoryInterface
 
         if (isset($data['genres'])) {
             $this->updateGenreMappings($entertainment->id, $data['genres']);
+        }
+        if (isset($data['tags'])) {
+            $this->updateTagMappings($entertainment->id, $data['tags']);
         }
         if (isset($data['countries'])) {
             $this->updateCountryMappings($entertainment->id, $data['countries']);
@@ -137,11 +141,24 @@ class EntertainmentRepository implements EntertainmentRepositoryInterface
                 'entertainment_id' => $entertainmentId,
                 'genre_id' => $genre
             ];
-
             EntertainmentGenerMapping::create($genre_data);
         }
 
     }
+
+    public function saveTagMappings(array $tags, $entertainmentId)
+    {
+        foreach ($tags as $tag) {
+            $genre_data = [
+                'entertainment_id' => $entertainmentId,
+                'tag_id' => $tag
+            ];
+
+            EntertainmentTagMapping::create($genre_data);
+        }
+
+    }
+
     public function saveCountryMappings(array $countries, $entertainmentId)
     {
         foreach ($countries as $country) {
@@ -186,6 +203,11 @@ class EntertainmentRepository implements EntertainmentRepositoryInterface
     {
         EntertainmentGenerMapping::where('entertainment_id', $entertainmentId)->forceDelete();
         $this->saveGenreMappings($genres, $entertainmentId);
+    }
+    protected function updateTagMappings($entertainmentId, $tags)
+    {
+        EntertainmentGenerMapping::where('entertainment_id', $entertainmentId)->forceDelete();
+        $this->saveTagMappings($tags, $entertainmentId);
     }
     protected function updateCountryMappings($entertainmentId, $countries)
     {

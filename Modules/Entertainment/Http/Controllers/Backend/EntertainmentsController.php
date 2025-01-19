@@ -12,6 +12,7 @@ use Modules\Subscriptions\Models\Plan;
 use Modules\Genres\Models\Genres;
 use Modules\CastCrew\Models\CastCrew;
 use Modules\Entertainment\Services\EntertainmentService;
+use Modules\Tag\Models\Tag;
 use Modules\World\Models\Country;
 
 class EntertainmentsController extends Controller
@@ -126,7 +127,8 @@ class EntertainmentsController extends Controller
                 'entertainmentGenerMappings',
                 'entertainmentCountryMappings',
                 'entertainmentStreamContentMappings',
-                'entertainmentTalentMappings'
+                'entertainmentTalentMappings',
+                'entertainmentTagMappings'
             ])
             ->first();
 
@@ -152,6 +154,7 @@ class EntertainmentsController extends Controller
 
         $plan = Plan::where('status', 1)->get();
         $genres = Genres::where('status', 1)->get();
+        $tags = Tag::where('status', 1)->get();
         $actors = CastCrew::where('type', 'actor')->get();
         $directors = CastCrew::where('type', 'director')->get();
         $countries = Country::where('status', 1)->get();
@@ -170,6 +173,7 @@ class EntertainmentsController extends Controller
         });
 
         $data['genres'] = $data->entertainmentGenerMappings->pluck('genre_id')->toArray();
+        $data['tags'] = $data->entertainmentTagMappings->pluck('tag_id')->toArray();
         $data['countries'] = $data->entertainmentCountryMappings->pluck('country_id')->toArray();
         $data['actors'] = $data->entertainmentTalentMappings->pluck('talent_id')->toArray();
         $data['directors'] = $data->entertainmentTalentMappings->pluck('talent_id')->toArray();
@@ -181,6 +185,7 @@ class EntertainmentsController extends Controller
             'plan',
             'movie_language',
             'genres',
+            'tags',
             'numberOptions',
             'actors',
             'directors',

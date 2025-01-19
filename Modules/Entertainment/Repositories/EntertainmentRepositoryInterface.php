@@ -16,6 +16,7 @@ interface EntertainmentRepositoryInterface
     public function list($filters);
     public function query();
     public function saveGenreMappings(array $data,$id);
+    public function saveTagMappings(array $data,$id);
     public function saveCountryMappings(array $data,$id);
     public function saveTalentMappings(array $data,$id);
     public function saveQualityMappings($id, array $videoQuality, array $qualityVideoUrl, array $videoQualityType, array $qualityVideoFile);

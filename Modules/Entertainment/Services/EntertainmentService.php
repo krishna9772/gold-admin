@@ -56,6 +56,9 @@ class EntertainmentService
         if (!empty($data['genres'])) {
             $this->entertainmentRepository->saveGenreMappings($data['genres'], $entertainment->id);
         }
+        if (!empty($data['tags'])) {
+            $this->entertainmentRepository->saveTagMappings($data['tags'], $entertainment->id);
+        }
         if (!empty($data['countries'])) {
             $this->entertainmentRepository->saveCountryMappings($data['countries'], $entertainment->id);
         }
