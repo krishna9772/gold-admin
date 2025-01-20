@@ -20,6 +20,7 @@ return[
     'lbl_basic_info'=>'Basic Info',
     'lbl_movie_language'=>'Language',
     'lbl_genres'=>'Genres',
+    'lbl_tags'=>'Tags',
     'lbl_imdb_rating'=>'IMDb Rating',
     'lbl_content_rating'=>'Content Rating',
     'lbl_duration'=>'Duration',

@@ -33,6 +33,7 @@ return [
     'lbl_cast_designation'=>'e.g. director',
     'lbl_movie_name'=>'e.g. Avengers: Endgame',
     'lbl_select_file'=> 'Choose file to upload',
+    'lbl_select_tag'=>'Tags',
     'lbl_movie_description'=>'e.g. Avengers: Endgame is a 2019 American superhero film based on the Marvel Comics superhero team the Avengers.',
     'lbl_trailer_url'=>'e.g. https://www.google.com/search?sca_esv=e993daa5ef008a5b&q=Avengers:+Endgame&stick',
     'video_url_input'=>'e.g  https://www.google.com/search?sca_esv=e993daa5ef008a5b&q=Avengers',

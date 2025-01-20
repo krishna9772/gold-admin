@@ -14,6 +14,7 @@ use Modules\Entertainment\Trait\ImportMovieTrait;
 use Modules\Entertainment\Services\EntertainmentService;
 use Modules\Entertainment\Services\MovieService;
 use App\Services\ChatGTPService;
+use Modules\Tag\Models\Tag;
 use Modules\World\Models\Country;
 
 class MovieController extends Controller
@@ -139,6 +140,7 @@ class MovieController extends Controller
 
             $plan = Plan::where('status', 1)->get();
             $genres = Genres::where('status', 1)->get();
+            $tags = Tag::where('status', 1)->get();
 
             $numberOptions = collect(range(1, 10))->mapWithKeys(function ($number) {
                 return [$number => $number];
@@ -155,7 +157,7 @@ class MovieController extends Controller
             $mediaUrls = getMediaUrls();
             $assets = ['textarea'];
             return view('entertainment::backend.entertainment.create', compact('assets',
-                'upload_url_type', 'plan', 'movie_language', 'genres', 'numberOptions', 'actors', 'directors','countries', 'video_quality', 'type', 'module_title', 'mediaUrls'
+                'upload_url_type', 'plan', 'movie_language', 'genres','tags', 'numberOptions', 'actors', 'directors','countries', 'video_quality', 'type', 'module_title', 'mediaUrls'
             ));
          }
 

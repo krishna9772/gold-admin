@@ -50,6 +50,10 @@ class Entertainment extends BaseModel
     {
         return $this->hasMany(EntertainmentGenerMapping::class,'entertainment_id','id')->with('genre');
     }
+    public function entertainmentTagMappings()
+    {
+        return $this->hasMany(EntertainmentTagMapping::class,'entertainment_id','id')->with('tag');
+    }
     public function entertainmentCountryMappings()
     {
         return $this->hasMany(EntertainmentCountryMapping::class,'entertainment_id','id')->with('country');

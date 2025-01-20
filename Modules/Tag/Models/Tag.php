@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Tag\Database\factories\TagFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Modules\Entertainment\Models\EntertainmentGenerMapping;
+use Modules\Entertainment\Models\EntertainmentTagMapping;
+
 
 class Tag extends Model
 {
@@ -29,9 +30,9 @@ class Tag extends Model
     }
 
 
-    public function entertainmentGenerMappings()
+    public function entertainmenTagMappings()
     {
-        return $this->hasMany(EntertainmentGenerMapping::class,'genre_id','id');
+        return $this->hasMany(EntertainmentTagMapping::class,'tag_id','id');
     }
 
     protected static function boot()
@@ -42,17 +43,17 @@ class Tag extends Model
 
             if ($tag->isForceDeleting()) {
 
-                $tag->entertainmentGenerMappings()->forcedelete();
+                $tag->entertainmenTagMappings()->forcedelete();
 
             } else {
-                $tag->entertainmentGenerMappings()->delete();
+                $tag->entertainmenTagMappings()->delete();
              }
 
         });
 
         static::restoring(function ($tag) {
 
-            $tag->entertainmentGenerMappings()->withTrashed()->restore();
+            $tag->entertainmenTagMappings()->withTrashed()->restore();
 
         });
     }

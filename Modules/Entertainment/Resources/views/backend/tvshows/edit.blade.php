@@ -268,6 +268,15 @@
                     </div>
 
                     <div class="col-md-6 col-lg-4">
+                        {{ html()->label(__('movie.lbl_tags') . '<span class="text-danger">*</span>', 'tags')->class('form-label') }}
+                        {{ html()->select('tags[]', $tags->pluck('name', 'id'),  $data->tags)->class('form-control select2')->id('tags')->multiple()->attribute('required','required') }}
+                        @error('tags')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        <div class="invalid-feedback" id="name-error">Tags field is required</div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
                         {{ html()->label(__('movie.lbl_countries'), 'countries')->class('form-label') }}
                         {{ html()->select('countries[]', $countries->pluck('name', 'id')->prepend(__('placeholder.lbl_select_country'), ''), old('countries', $data['countries'] ?? []))
                             ->class('form-control select2')

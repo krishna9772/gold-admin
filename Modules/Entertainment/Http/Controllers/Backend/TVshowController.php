@@ -17,6 +17,7 @@ use  Modules\Genres\Repositories\GenreRepositoryInterface;
 use Modules\Entertainment\Services\TvShowService;
 use Modules\World\Models\Country;
 use Illuminate\Support\Facades\Cache;
+use Modules\Tag\Models\Tag;
 
 class TVshowController extends Controller
 {
@@ -147,6 +148,8 @@ class TVshowController extends Controller
 
         $genres=Genres::where('status',1)->get();
 
+        $tags = Tag::where('status', 1)->get();
+
         $numberOptions = collect(range(1, 10))->mapWithKeys(function ($number) {
             return [$number => $number];
         });
@@ -164,7 +167,7 @@ class TVshowController extends Controller
         $mediaUrls =  getMediaUrls();
 
 
-        return view('entertainment::backend.tvshows.create', compact('upload_url_type','assets','plan','movie_language','genres','numberOptions','actors','directors','countries','video_quality','type','module_title','mediaUrls'));
+        return view('entertainment::backend.tvshows.create', compact('upload_url_type','assets','plan','movie_language','genres','tags','numberOptions','actors','directors','countries','video_quality','type','module_title','mediaUrls'));
     }
 
 
@@ -189,11 +192,12 @@ class TVshowController extends Controller
      */
     public function edit($id)
     {
-        $data = Entertainment::where('id',$id)->with('entertainmentGenerMappings','entertainmentTalentMappings')->first();
+        $data = Entertainment::where('id',$id)->with('entertainmentGenerMappings','entertainmentTagMappings','entertainmentTalentMappings')->first();
         $tmdb_id = $data->tmdb_id;
         $data->thumbnail_url = setBaseUrlWithFileName($data->thumbnail_url);
         $data->poster_url =  setBaseUrlWithFileName($data->poster_url);
         $data['genres'] = $data->entertainmentGenerMappings->isEmpty() ? [] : $data->entertainmentGenerMappings->pluck('genre_id')->toArray();
+        $data['tags'] = $data->entertainmentTagMappings->isEmpty() ? [] : $data->entertainmentTagMappings->pluck('tag_id')->toArray();
         $data['countries'] = $data->entertainmentCountryMappings->isEmpty() ? [] : $data->entertainmentCountryMappings->pluck('country_id')->toArray();
         $data['actors'] = $data->entertainmentTalentMappings->isEmpty() ? [] : $data->entertainmentTalentMappings->pluck('talent_id')->toArray();
         $data['directors'] = $data->entertainmentTalentMappings->isEmpty() ? [] : $data->entertainmentTalentMappings->pluck('talent_id')->toArray();
@@ -215,6 +219,7 @@ class TVshowController extends Controller
         $movie_language=Constant::where('type','movie_language')->get();
 
         $genres=Genres::where('status',1)->get();
+        $tags=Tag::where('status',1)->get();
 
         $numberOptions = collect(range(1, 10))->mapWithKeys(function ($number) {
             return [$number => $number];
@@ -227,7 +232,7 @@ class TVshowController extends Controller
 
         $mediaUrls =  getMediaUrls();
 
-        return view('entertainment::backend.tvshows.edit', compact('data','tmdb_id','assets','upload_url_type','plan','movie_language','genres','countries','numberOptions','actors','directors','mediaUrls','module_title'));
+        return view('entertainment::backend.tvshows.edit', compact('data','tmdb_id','assets','upload_url_type','plan','movie_language','genres','tags','countries','numberOptions','actors','directors','mediaUrls','module_title'));
 
     }
 
