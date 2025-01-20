@@ -37,7 +37,7 @@ class UserTableSeeder extends Seeder
             [
                 'first_name' => 'Super',
                 'last_name' => 'Admin',
-                'email' => 'admin@streamit.com',
+                'email' => 'admin@goldchannel.com',
                 'password' => Hash::make('12345678'),
                 'mobile' => '+12123567890',
                 'date_of_birth' => fake()->date,
@@ -52,7 +52,7 @@ class UserTableSeeder extends Seeder
             [
                 'first_name' => 'Ivan',
                 'last_name' => 'Norris',
-                'email' => 'demo@streamit.com',
+                'email' => 'admin@goldchannel.com',
                 'password' => Hash::make('12345678'),
                 'mobile' => '+12124567899',
                 'date_of_birth' => fake()->date,

@@ -63,8 +63,8 @@
 
       <select name="select"  id="SelectUser"  id="select" class="form-control selectpiker" onchange="getSelectedOption()">
           <option value="">Select Role</option>
-          <option value="12345678,admin@streamit.com">Admin</option>
-          <option value="12345678,demo@streamit.com"  selected>Demo Admin</option>
+          <option value="12345678,admin@goldchannel.com">Admin</option>
+          <option value="12345678,admin@goldchannel.com"  selected>Demo Admin</option>
           <option value="secret,john@streamit.com">User</option>
       </select>
 
