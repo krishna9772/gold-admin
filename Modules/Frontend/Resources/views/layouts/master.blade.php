@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset(setting('favicon')) }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title> {{ config('app.name', 'Laravel') }}</title>
+    <title> Gold Channel </title>
 
     <meta name="description" content="{{ $description ?? '' }}">
     <meta name="keywords" content="{{ $keywords ?? '' }}">
