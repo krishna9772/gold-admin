@@ -17,7 +17,7 @@ return[
     'not_receive_otp' => 'لم تتلقَ OTP؟',
     'continue_with_google' => 'تابع مع Google',
     'not_have_account' => 'لا تملك حساباً؟',
-    'sign_in_title' => 'مرحبًا بعودتك إلى StreamIt!',
+    'sign_in_title' => 'مرحبًا بعودتك إلى Gold Channel!',
     'sign_in_sub_title' => 'لقد انتظرنا عودتك بشغف.',
     'first_name' => 'الاسم الأول',
     'last_name' => 'اسم العائلة',

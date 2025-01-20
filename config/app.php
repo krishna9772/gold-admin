@@ -17,7 +17,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Streamit-Laravel'),
+    'name' => env('APP_NAME', 'Gold Channel'),
 
     /*
     |--------------------------------------------------------------------------

@@ -24,7 +24,7 @@ return [
                 'label' => 'User App Name', // you know what label it is
                 'rules' => 'required|min:2|max:50', // validation rule of laravel
                 'class' => '', // any class for input
-                'value' => 'Streamit', // default value if you want
+                'value' => 'Gold Channel', // default value if you want
                 'datatype' => 'bussiness',
             ],
             [
@@ -34,7 +34,7 @@ return [
                 'label' => 'User App Name', // you know what label it is
                 'rules' => 'required|min:2|max:50', // validation rule of laravel
                 'class' => '', // any class for input
-                'value' => 'Streamit', // default value if you want
+                'value' => 'Gold Channel', // default value if you want
                 'datatype' => 'bussiness',
             ],
 
@@ -56,7 +56,7 @@ return [
                 'label' => 'Email', // you know what label it is
                 'rules' => 'required|min:2', // validation rule of laravel
                 'class' => '', // any class for input
-                'value' => 'admin@streamit.com', // default value if you want
+                'value' => 'admin@goldchannel.com', // default value if you want
                 'datatype' => 'bussiness',
             ],
             [
@@ -912,7 +912,7 @@ return [
                 'label' => 'From Name', // you know what label it is
                 'rules' => 'required', // validation rule of laravel
                 'class' => '', // any class for input
-                'value' => 'Streamit-Laravel', // default value if you wantPassword
+                'value' => 'Gold Channel', // default value if you wantPassword
             ],
         ],
 
